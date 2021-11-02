@@ -1,0 +1,31 @@
+.display { 
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+   
+}
+
+.card li {
+    list-style-type: none;
+}
+
+.image {
+    display: flex;
+    width: 262px;
+}
+
+ul{
+    list-style-type:none;
+    }
