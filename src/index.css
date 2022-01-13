@@ -48,4 +48,36 @@ li a {
 }
 
 
+.gf-Header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.gf-Header a {
+  color :black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.button-fav {
+position:absolute;
+z-index: 1;
+top: 8px;
+right: 8px;
+background: rgba(255, 172, 172, -3);
+border: 0;
+border-radius: 100px;
+cursor: pointer;
+width: 30px;
+height: 30px;
+transition: all .3s ease;
+}
+
+
+
+.button-fav:hover {
+ background: rgba(255, 172, 172, -8);
+}
 

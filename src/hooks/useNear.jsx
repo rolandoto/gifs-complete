@@ -13,7 +13,6 @@ const   useNearscreen =({distanced='100px',externalRef,once=true} ={}) => {
         let observer
         const onChange  =(entries,observer) => {
             const el = entries[0]
-            console.log(el.isIntersecting)
             if(el.isIntersecting){
                  setShow(true)                //cuando haga insertion observer i el once va hacer = true
                 once &&  observer.disconnect()
@@ -21,7 +20,7 @@ const   useNearscreen =({distanced='100px',externalRef,once=true} ={}) => {
             }else 
             setShow(false)
             !once && setShow(false)
-        }
+        }   
     Promise.resolve(
         typeof IntersectionObserver === 'undefined'
         ? IntersectionObserver

@@ -4,7 +4,7 @@ import Getgif from "../service/Getgif";
 
 const INTIAL = 0
 
-const UseGift = ({keyword}) =>{
+const UseGift = ({keyword,raiting}) =>{
     
     const [page,setPage] = useState(INTIAL)
   
@@ -23,7 +23,7 @@ const UseGift = ({keyword}) =>{
     //recuperamos la keyword del  localsotrage
     
     setLoadings(true)
-    Getgif({ keyword :keywordTouse})
+    Getgif({ keyword :keywordTouse,raiting})
     .then((gifse) => {
       //setGifs(gifs)});
      // setLoadin(false)
@@ -33,14 +33,14 @@ const UseGift = ({keyword}) =>{
      //guardamos la keyword en el  localsotrage
       
     })
-  }, [keyword,keywordTouse,setGifs]);
+  }, [keyword,keywordTouse,setGifs,raiting]);
   //MUY INPORTANTE SABER QUE EN EL OBJECTO ES UNA DEPENDECIA
   //QUE ES NECESARIA
 
   useEffect(() => {
     if(page ===  INTIAL)return 
     setNextloading(true)
-    Getgif({keyword:keywordTouse,page})
+    Getgif({keyword:keywordTouse,page,raiting})
     .then((nextGifs => {
       setNextloading(false)
       //el aqui cocatena los resultados anterios con los nuevos 

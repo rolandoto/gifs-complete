@@ -1,52 +1,37 @@
 import React from 'react'
-import { useContext, useState } from 'react/cjs/react.development'
+import { useContext, useState,useCallback} from 'react/cjs/react.development'
 import {useLocation} from 'wouter'
 import UseGift from '../hooks/UseGift'
-import {Link} from '@reach/router'
-import UseGifContext from '../hooks/UseGifContext'
 import ListCard from './ListCard'
-import { Boton, Flexed, ImgWraper, Lx, White } from '../style-components/app'
+import { Boton, ImgWraper,Lx} from '../style-components/app'
 import  { Lazytreding } from '../hooks/Usetreding'
+import FormSeach from './FormSearch'
+import Usetitle from '../hooks/useTitle'
+import UseGifContext from '../hooks/UseGifContext'
+import UseSearch from '../hooks/UseSearch'
 
 const ListHome =()=> {
-    
-    
-    const [location,setLocation] = useLocation()
-    
+
+   
     const {loading,setPage} =UseGift({keyword:'madara'})
     
-    const {gifs} = UseGifContext()
 
+    const {gifs}=  UseGifContext()
     
-    const [keywor,setKeyword] =useState('')
+    //IMPORTANTE RECORDAR COLOCAR EL CUSTO HOOKS DE GIF
    
-//IMPORTANTE RECORDAR COLOCAR EL CUSTO HOOKS DE GIF
-    const handlsubmit =(event) =>{
-        setLocation(`/gif/${keywor}`)
-      }
-      
-      const handlinput =(e)=> {
-        setKeyword(e.target.value)
-      }
-
       //next page
       const handNextpage = () => {
           setPage(previ => previ + 1)
       }
-
+        
     return(
         <div>
             <div>
-                <form onSubmit={handlsubmit}>
-                    <input type="text" onChange={handlinput} />
-                    <input type="submit" />
-                </form>
+                <FormSeach   />
                 </div>
-
-                
-            
                 {loading ? 
-                 <h1>cargando</h1>
+                 <h1>cargando</h1>  
                   :
                  <div>
                      <Lx>

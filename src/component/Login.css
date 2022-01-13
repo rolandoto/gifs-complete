@@ -1,0 +1,29 @@
+.form {
+    max-width: 320px;
+    width: 100%;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.form input{
+    background: white;
+    border: none;
+    display: block;
+    line-height: 2;
+    width: 100%;
+    padding: 0 4px;
+    margin-bottom: 16px;
+    margin-top:4px ;
+}
+
+.form .btn {
+    width: 100%;
+}
+
+.btn {
+    background: purple;
+}
