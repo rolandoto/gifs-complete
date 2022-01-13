@@ -9,9 +9,6 @@ const Usetreding =() => {
         Getreding().then(setTreding)
     },[])
 
-   
-    
-
     return (
         <div>
             <ul>

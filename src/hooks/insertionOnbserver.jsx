@@ -20,11 +20,11 @@ const UseScrean =() =>  {
                    const {isIntersecting} = entries[0]
                    console.log({isIntersecting})
                    if(isIntersecting){
-                       console.log('si')
+                       
                        setShow(true) 
                        observer.disconnect()
                    }else{
-                       console.log('no')
+                      
                        setShow(false)
                    }
                })

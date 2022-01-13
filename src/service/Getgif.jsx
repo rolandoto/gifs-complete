@@ -1,7 +1,7 @@
 
-const Getgif = ({ keyword ,page} = {}) => {
-   const  url = `https://api.giphy.com/v1/gifs/search?q=${keyword}&limite=1&offset=${page * 25}&api_key=Bl5n93o1TXOey7JMQbDqAUkbx2RYXyNQ`;
-  
+const Getgif = ({ keyword ,page,raiting} = {}) => {
+   const  url = `https://api.giphy.com/v1/gifs/search?q=${keyword}&limite=1&offset=${page * 25}&rating=${raiting}&api_key=Bl5n93o1TXOey7JMQbDqAUkbx2RYXyNQ`;
+    
   return fetch(url)
     .then((res) => res.json())
     .then((response) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Gifs from "./Gifs";
-import Spinner from 'react-bootstrap/Spinner'
+
 import UseGift from "../hooks/UseGift";
 import { Boton, Center, Flexed, ImgWraper, Lx } from '../style-components/app'
 import useNearscreen from "../hooks/useNear";
@@ -8,20 +8,30 @@ import { useRef } from "react";
 import { useEffect } from "react/cjs/react.development";
 import debounce  from "just-debounce-it";
 import { useCallback } from "react";
-const ListOfGif = ({keyword}) => {
-  console.log(keyword)
-  const {loading,gifs,setPage} = UseGift({keyword})
+import Usetitle from "../hooks/useTitle";
+import FormSeach from './FormSearch'
+import UseSearch from "../hooks/UseSearch";
+import  ListCard   from '../../src/component/ListCard' 
+const ListOfGif = ({keyword,raiting}) => {
+
+
+  const {loading,gifs,setPage} = UseGift({keyword,raiting})
 
   const externalRef = useRef()
- 
+  
   //const handleNextpage =() =>{
   //  setPage(prevepage => prevepage +1)
- // } 
+  // } 
 
+  //si hay datos me envia las longitudes
+
+  const title  = gifs ? `${gifs.length}  Resultado es ${keyword}`:''
+   Usetitle({title,description:title})
+  
   const {isNearScreen,Ref} = useNearscreen({externalRef:
     loading ?null: externalRef,once :true})
-    console.log(isNearScreen) 
-//debounce es una dependencia para ejecutar una sola vez cada cierto minuto
+    
+  //debounce es una dependencia para ejecutar una sola vez cada cierto minuto
   const debouncepage =  useCallback(debounce( 
     () => setPage(prevepage => prevepage +1),1000
    
@@ -38,24 +48,29 @@ const ListOfGif = ({keyword}) => {
     
   },[isNearScreen,debouncepage])
 
+  
   return (
     <div>
-          {loading ? <Spinner animation="border" role="status">
+          {loading ? <h1 animation="border" role="status">
               <span className="visually-hidden">Loading...</span>
-          </Spinner>:
+          </h1>:
               <Lx>
-                {gifs.map((listgifs) => (
+                 <FormSeach initialKeword={keyword} initalRaiting={raiting} />
+                {gifs.map(({id,title,url, ...resp}) => (
                       <ImgWraper>
-                    <Gifs  key={listgifs.id} gifs={listgifs} />
+                    <ListCard key={id}
+                          url={url}
+                          id={id}
+                          title={title}
+                          resp={resp}
+                          extraInfo={resp} />
                     </ImgWraper>
                 ))}
              </Lx>
             }
-          <div  ref={Ref} >
-
+            <div  ref={Ref} >
             </div>
-
-        <button onClick={handclick}>
+          <button onClick={handclick}>
             arriba
           </button>
            

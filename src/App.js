@@ -18,22 +18,30 @@ import { Usecart } from "./hooks/Usecart";
 import DetailDefault from "./component/DetailDefault";
 import ListHome from "./component/ListHome";
 import {Section}  from './style-components/app'
+import Default from "./component/Default";
+import  Headers from "./component/Headers";
+import { UserContext } from "./context/UseContext";
+import Register from "./page/Register";
+import LoginPage from "./page/LoginPage";
 
 const Homepage = React.lazy(() => import('./component/Home'))
 
 export default function App() {
 
-  const NotFound = () => (
-    <div>lo siento no found</div>
-  ) 
-
+ 
   const custon = CustonHooks()
 
   const useCarts = Usecart()
 
+  //cuando se usa react-router-dom o wouter 
+  //se puede usar esto como una funcion
+  // <Route component={() => <h1> 404 error </h1>}
+  //  path='/404'/>
+
   return (
        <StaticContext.Provider value={{name:'Rolando'}}>
         <Section className="App">
+           
           <Suspense fallback={null}>
           <div className='flex-card'>
                   <Link to='/'>
@@ -56,20 +64,25 @@ export default function App() {
                   </Link>
                   <br/>
             </div> 
-            <GitContext>
-           <ContexCart.Provider value={useCarts} >
-              <Router>
-                  <Homepage path='/'/>
-                  <ListOfGif path='/gif/:keyword' />
-                  <Calculadora path='/calculadora' />
-                  <CarritoStore path='/carrito' />
-                  <Detail  path='/Detail/:id' />
-                  <DetailDefault path='DetailDefault/:id' />
-                  <Checkout path='/Cheackout' />
-                  <NotFound default />
-              </Router>
-              </ContexCart.Provider>
-            </GitContext>
+            <UserContext>
+                <GitContext>
+                <ContexCart.Provider value={useCarts} >
+                    <Headers />
+                <Router>
+                    <Homepage path='/'/>
+                    <ListOfGif  path="/gif/:keyword/:raiting" />
+                    <Calculadora path='/calculadora' />
+                    <CarritoStore path='/carrito' />
+                    <Detail  path='/Detail/:id' />
+                    <DetailDefault path='DetailDefault/:id' />
+                    <Checkout path='/Cheackout' />
+                    <Default path='/404' />
+                    <LoginPage  path='/Login' />
+                     <Register  path='/Register' />
+                </Router>
+                </ContexCart.Provider>
+                </GitContext>
+            </UserContext>
             </Suspense>
         </Section>
     </StaticContext.Provider>
