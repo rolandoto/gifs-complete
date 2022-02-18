@@ -11,7 +11,7 @@ import { useCallback } from "react";
 import Usetitle from "../hooks/useTitle";
 import FormSeach from './FormSearch'
 import UseSearch from "../hooks/UseSearch";
-import  ListCard   from '../../src/component/ListCard' 
+
 const ListOfGif = ({keyword,raiting}) => {
 
 
@@ -54,19 +54,19 @@ const ListOfGif = ({keyword,raiting}) => {
           {loading ? <h1 animation="border" role="status">
               <span className="visually-hidden">Loading...</span>
           </h1>:
-              <Lx>
-                 <FormSeach initialKeword={keyword} initalRaiting={raiting} />
+              <div>
+                 <FormSeach  />
                 {gifs.map(({id,title,url, ...resp}) => (
-                      <ImgWraper>
-                    <ListCard key={id}
+                   
+                    <div key={id}
                           url={url}
                           id={id}
                           title={title}
                           resp={resp}
                           extraInfo={resp} />
-                    </ImgWraper>
+                    
                 ))}
-             </Lx>
+             </div>
             }
             <div  ref={Ref} >
             </div>

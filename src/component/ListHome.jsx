@@ -33,14 +33,17 @@ const ListHome =()=> {
                 {loading ? 
                  <h1>cargando</h1>  
                   :
-                 <div>
-                     <Lx>
-                    {gifs.map((res) =>(
-                        <ImgWraper>
+                 <div className='app'>
+                    <div className='gid-img'>
+                        {gifs.map((res) =>(
+                       
                             <ListCard key={res.id} {...res} />
-                       </ImgWraper>
+                     
                     ))}
-                    </Lx>
+
+                    </div>
+                    
+                  
                 </div>
                 } 
             <div>
@@ -48,7 +51,7 @@ const ListHome =()=> {
             </div>
                 
             <div>
-                <Boton onClick={handNextpage}>Next page</Boton>
+                <button onClick={handNextpage}>Next page</button>
             </div>
         </div>
     )

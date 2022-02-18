@@ -4,7 +4,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import {Link} from '@reach/router'
 import { Usecart } from '../hooks/Usecart';
 import { ContexCart } from '../context/ContexCart';
-import { Flex, Nav } from '../style-components/app';
 import Lisproduts from './reduccer-carritostore/Component/Lisproducts';
 const CarritoStore =() =>{
     
@@ -38,7 +37,7 @@ const CarritoStore =() =>{
     return(
         <> 
             <div>
-                <Nav>
+                <div>
                     <span>
                         <Link to='/Cheackout'>
                             <AiOutlineShoppingCart size={50}  color='black'  />
@@ -48,12 +47,12 @@ const CarritoStore =() =>{
                             </div>
                         </Link>
                     </span>
-                </Nav>
-                    <Flex>
+                </div>
+                    <div>
                         {product.map((prod) => (
                         <Lisproduts prod={prod} handdd={handdd} />
                         ))}
-                     </Flex>
+                     </div>
             </div> 
         </>
     )

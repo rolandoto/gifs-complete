@@ -1,7 +1,7 @@
 import React from "react";
 import "./Gif.css";
 import {Link} from '@reach/router'
-import { Image } from '../style-components/app'
+
 import useNearscreen from "../hooks/useNear";
 import Usetitle from "../hooks/useTitle";
 
@@ -22,7 +22,7 @@ const Gifs = ({id,title,url}) => {
             <Link to={`/Detail/${id}`}>
             <div >
                   <h4>{title}</h4>
-                  <Image src={url} />;
+                  <img src={url} />;
             </div>
             </Link>
             )}

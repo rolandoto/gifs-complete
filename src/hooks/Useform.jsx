@@ -22,18 +22,18 @@ const reduccer =(state,action)=>{
         default:
             return state
     }
-   
+
 }
 
-const Useform =({initialKeword='',initalRaiting=''})=>{
+const Useform =()=>{
     
     const [state,dispatch] = useReducer(reduccer,{
-            keywor: decodeURIComponent(initialKeword),
-            raiting: initalRaiting,
+            keywor: decodeURIComponent(),
+            raiting: 1,
             time:0
         })
     const {keywor,raiting,time} = state
-
+    
     return {
         keywor,
         raiting,

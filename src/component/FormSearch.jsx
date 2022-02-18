@@ -12,7 +12,7 @@ const FormSeach =({initialKeword='',initalRaiting=''}) =>{
     //const [time,setTime] = useState(0)
     
     //aqui viene el valor updateKeword,updateRaiting del onchange
-    const {keywor,raiting,time,updateKeword,updateRaiting}  = Useform({initialKeword,initalRaiting})
+    const {keywor,raiting,time,updateKeword,updateRaiting}  = Useform()
 
     const handlinput =(e)=> {
         updateKeword(e.target.value)
@@ -26,8 +26,7 @@ const FormSeach =({initialKeword='',initalRaiting=''}) =>{
     
     const handchangeraiting =(e)=>{
         updateRaiting(e.target.value)
-        
-        }
+    }
 
     return(
          <form onSubmit={handlsubmit}>

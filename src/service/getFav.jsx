@@ -7,7 +7,7 @@ const getFavs =({jwt})=>{
         headers:{
             'Authorization': jwt,
             'Content-type':'application/json'
-        }   
+        }     
     }).then(resp =>{
         if(!resp.ok) throw new Error('Response is not ok')
         return resp.json()

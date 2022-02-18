@@ -76,8 +76,40 @@ transition: all .3s ease;
 }
 
 
+.bnt[disabled]{
+  opacity: .3;
+  pointer-events: none;
+  background-color: blue;
+  color: white;
+}
 
 .button-fav:hover {
  background: rgba(255, 172, 172, -8);
 }
 
+
+form input.error {
+  border: 1px solid red;
+}
+
+
+.to {
+  
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+    overflow: scroll;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gid-img {
+   
+}

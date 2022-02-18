@@ -1,7 +1,6 @@
 import React,{useContext}  from 'react'
 
 import { ContexCart } from '../../context/ContexCart'
-import { Img, LisProduct } from '../../style-components/app'
 
 const Checkout = () => {
 
@@ -16,11 +15,11 @@ const Checkout = () => {
 
     return (
          <div className='container'>
-            <LisProduct>
+            <div>
                 {cart.map((listprod)=> (
                     <ul key={listprod.id}>
                         <li>{listprod.title} </li>
-                            <Img src={listprod.image} alt="" />
+                            <img src={listprod.image} alt="" />
                             <li> $:{listprod.price} </li>
                             <h1> la cantidad es: {listprod.cantidad} </h1>
                         <button onClick={() => remove(listprod)} >borrar</button>
@@ -29,7 +28,7 @@ const Checkout = () => {
                         </div>
                     </ul>
                 ))}
-            </LisProduct>
+            </div>
             <h1>cantidad total</h1>
             {cart.length > 0 &&  <h1> {cart.length + totalPrice.length}</h1>}
            <div>

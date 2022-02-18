@@ -2,7 +2,6 @@ import React from 'react'
 import './Modal.css'
 import ReactDOM from 'react-dom'
 
-
 const Modal =({children,onClose})=>{
     return(
         <div  className='Modal'>
@@ -13,7 +12,7 @@ const Modal =({children,onClose})=>{
         </div>
     )
 }
-
+ 
 const ModalMortal = ({children,onClose}) => {
     return ReactDOM.createPortal(
             <Modal onClose={onClose} >

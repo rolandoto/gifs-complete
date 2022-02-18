@@ -11,7 +11,7 @@ const UseGift = ({keyword,raiting}) =>{
     const [loading,setLoadings] =useState(false)
     const {gifs,setGifs} = useContext(GitContext)
     const [nextloading,setNextloading] = useState(false)
-//const [gifs, setGifs] = useState(
+  //const [gifs, setGifs] = useState(
   //  {loading:false, results: []});
   const keywordTouse = keyword || localStorage.getItem('lastKeyword') || 'random'
   useEffect(() => {
@@ -46,7 +46,10 @@ const UseGift = ({keyword,raiting}) =>{
       //el aqui cocatena los resultados anterios con los nuevos 
       //los unos para que cada que le de click bayan bajando cada vez mas
       setGifs(preveGifs => preveGifs.concat(nextGifs))
-    }))
+    })).catch((e) =>{
+      setNextloading(true)
+      console.error(e)
+    })
   },[,keywordTouse,page])
 
   return {loading,gifs,setPage,nextloading}
