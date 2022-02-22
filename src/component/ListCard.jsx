@@ -7,13 +7,11 @@ import Fav from './Fav'
 const   ListCard =({id,title,url}) => {
 
   return (
-        <div>
-           
+        <div className='to'>
             <Fav id={id} />
              <Link to={`/Detail/${id}`} > 
                 <div>
-                    <h1>{title} </h1>
-                    <Image src={url} />; 
+                    <img src={url} alt="" />
                 </div>
             </Link>
                     

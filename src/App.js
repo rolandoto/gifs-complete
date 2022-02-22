@@ -1,14 +1,13 @@
 import React, { useState,Suspense } from "react";
 import ListOfGif from "./component/ListOfGif";
 import Detail from "./component/Detail";
-import { Router } from "@reach/router";
+import { Router,Link} from "@reach/router";
 import Calculadora from "./service/custon-hooks/Calculadora";
 import CarritoStore from "./pages/CarritoStore";
 import Home from "./component/Home";
 import './index.css'
 import { BsFillBagFill } from "react-icons/bs";
 import { ImHome3,ImPencil2,ImCodepen,ImAppleinc } from "react-icons/im";
-import {Link} from './style-components/app'
 import { StaticContext } from "./context/StatictContex";
 import CustonHooks from "./service/custon-hooks/CustonHooks";
 import { GitContext } from "./context/GifsContext";
@@ -17,12 +16,13 @@ import { ContexCart } from "./context/ContexCart";
 import { Usecart } from "./hooks/Usecart";
 import DetailDefault from "./component/DetailDefault";
 import ListHome from "./component/ListHome";
-import {Section}  from './style-components/app'
+
 import Default from "./component/Default";
 import  Headers from "./component/Headers";
 import { UserContext } from "./context/UseContext";
 import Register from "./page/Register";
 import LoginPage from "./page/LoginPage";
+import RegisterWithForm from "./page/RegisterwithHooksForm";
 
 const Homepage = React.lazy(() => import('./component/Home'))
 
@@ -40,8 +40,7 @@ export default function App() {
 
   return (
        <StaticContext.Provider value={{name:'Rolando'}}>
-        <Section className="App">
-           
+      
           <Suspense fallback={null}>
           <div className='flex-card'>
                   <Link to='/'>
@@ -79,12 +78,13 @@ export default function App() {
                     <Default path='/404' />
                     <LoginPage  path='/Login' />
                      <Register  path='/Register' />
+                     <RegisterWithForm path='/RegisterForm' />
                 </Router>
                 </ContexCart.Provider>
                 </GitContext>
             </UserContext>
             </Suspense>
-        </Section>
+      
     </StaticContext.Provider>
   );
 }
